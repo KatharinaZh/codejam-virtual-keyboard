@@ -43,5 +43,55 @@ for (let i = 0; i < keysArray.length; i++) { //проход по строкам 
 
         btn.classList.add('btn', `btn_${keysArray[i][j]}`);
 
+
+        // ввод при клике мышкой
+        btn.addEventListener('mousedown', (event) => {  
+
+            if (btn.textContent === 'Tab') {
+
+                textArea.textContent += '   ';
+                btn.classList.add('btn-active');
+
+            } else if (btn.textContent === 'Space') {
+
+                textArea.textContent += ' ';
+                btn.classList.add('btn-active');
+
+            } else if (btn.textContent === 'CapsLock' || btn.textContent === 'Ctrl' || btn.textContent === 'Win' || btn.textContent === 'Alt') {
+
+                textArea.textContent += '';
+                btn.classList.add('btn-active');
+                
+            } else if (btn.textContent === 'Shift') {
+                btn.textContent = btn.textContent.toUpperCase();
+                btn.classList.add('btn-active');
+                
+            } else if (btn.textContent === 'Backspace') {
+                
+                textArea.textContent = textArea.textContent.split('').slice(0, -1).join('');
+                btn.classList.add('btn-active');
+                
+            } else if (btn.textContent === 'Delete') {
+                
+                textArea.textContent = textArea.textContent.split('').slice(0, -1).join('');
+                btn.classList.add('btn-active');
+                
+            } else if (btn.textContent === 'Enter') {
+                
+                textArea.textContent += '\n';
+                btn.classList.add('btn-active');
+
+            } else {
+                textArea.textContent += `${keysArray[i][j]}`;
+                // btn.style.backgroundColor = 'red';   //for animation
+                btn.classList.add('btn-active');
+            }
+
+            btn.addEventListener('mouseup', (event) => {
+                btn.classList.remove('btn-active');
+                // btn.style.backgroundColor = 'lightblue';  //for animation
+            }); 
+        });
+
     }
 }
