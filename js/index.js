@@ -95,3 +95,23 @@ for (let i = 0; i < keysArray.length; i++) { //проход по строкам 
 
     }
 }
+
+//ввод с клавиатуры
+document.addEventListener('keydown', (event) => {
+    for (let i = 0; i < codesArray.length; i++) { 
+        if (codesArray[i].indexOf(event.code) !== -1) {
+            let x = codesArray[i].indexOf(event.code); //place
+            let ind = i; //row
+            let newBtn = document.querySelector(`.btn_${keysArray[ind][x]}`);
+
+            newBtn.classList.add('btn-active');
+            
+            document.addEventListener('keyup', (event) => {
+                 newBtn = document.querySelector(`.btn_${keysArray[ind][x]}`);
+                 newBtn.classList.remove('btn-active');
+            });
+            
+        }   
+
+    }
+});
