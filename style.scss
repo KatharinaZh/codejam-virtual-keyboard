@@ -1,0 +1,63 @@
+.wrapper {
+    width: 100%;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+}
+
+.wrapper--text_area {
+    display: block;
+    width: 55%;
+    height: 250px;
+    margin: 1% auto;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    background-color: rgba($color: grey, $alpha: 0.2);    
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 55%;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 70px;
+    margin: 5px;
+    // background-color: rgba(blue, 0.2);  
+    background-color: lightblue;  
+    -webkit-user-select: none;  
+
+
+    transition-property: background-color;
+    transition-duration: 1s;
+    // &:hover {
+    //     background-color: rgba(blue, 0.4);
+    // }
+}
+
+
+.btn_Space {
+    width: 757px;
+}
+
+.btn_CapsLock,
+.btn_Enter,
+.btn_Backspace,
+.btn_Shift:first-child {
+    width: 209px;
+}
+
+.btn-active {
+    font-size: 30px;
+    background-color: red;
+}

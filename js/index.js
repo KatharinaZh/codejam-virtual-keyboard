@@ -30,6 +30,7 @@ textArea.setAttribute('autofocus', true);
 
 
 for (let i = 0; i < keysArray.length; i++) { //проход по строкам клавиатуры (по элементами массива)
+    
     let row = document.createElement('div');
     row.classList.add('row', `row_${i+1}`);
     keyboard.append(row);
