@@ -6,11 +6,9 @@
 
 .wrapper--text_area {
   display: block;
-  width: 55%;
-  height: 250px;
+  width: 70%;
+  height: 100px;
   margin: 1% auto;
-  font-size: 1.5rem;
-  line-height: 1.5rem;
   background-color: rgba(128, 128, 128, 0.2);
 }
 
@@ -25,7 +23,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 55%;
+  width: 71%;
   margin: 0 auto;
 }
 
@@ -46,7 +44,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   width: 100px;
-  height: 70px;
+  height: 50px;
   margin: 5px;
   background-color: lightblue;
   -webkit-user-select: none;
@@ -57,18 +55,16 @@
 }
 
 .btn_Space {
-  width: 757px;
+  width: 577px;
 }
 
 .btn_CapsLock,
 .btn_Enter,
-.btn_Backspace,
-.btn_Shift:first-child {
+.btn_Backspace {
   width: 209px;
 }
 
 .btn-active {
-  font-size: 30px;
   background-color: red;
 }
 /*# sourceMappingURL=style.css.map */
