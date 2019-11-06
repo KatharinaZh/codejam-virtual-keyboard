@@ -9,8 +9,6 @@
     width: 70%;
     height: 100px;
     margin: 1% auto;
-    // font-size: 1.5rem;
-    // line-height: 1.5rem;
     background-color: rgba($color: grey, $alpha: 0.2);    
 }
 
@@ -33,16 +31,15 @@
     width: 100px;
     height: 50px;
     margin: 5px;
-    // background-color: rgba(blue, 0.2);  
     background-color: lightblue;  
+    border: solid 1px transparent;
+    border-radius: 0;
     -webkit-user-select: none;  
 
 
     transition-property: background-color;
-    transition-duration: 1s;
-    // &:hover {
-    //     background-color: rgba(blue, 0.4);
-    // }
+    transition-property: border-radius;
+    transition-duration: 0.2s;
 }
 
 
@@ -57,6 +54,6 @@
 }
 
 .btn-active {
-    // font-size: 30px;
-    background-color: red;
+    background-color: lightcoral;
+    border-radius: 50%;
 }

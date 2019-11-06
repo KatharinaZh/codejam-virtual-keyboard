@@ -83,9 +83,15 @@ function createKeyboard(keysArrayEN) {
                     textArea.textContent += ' ';
                     btn.classList.add('btn-active');
 
-                } else if (btn.textContent === 'CapsLock' || btn.textContent === 'Ctrl' || btn.textContent === 'Win' || btn.textContent === 'Alt') {
+                } else if (btn.textContent === 'Ctrl' || btn.textContent === 'Win' || btn.textContent === 'Alt') {
 
                     textArea.textContent += '';
+                    btn.classList.add('btn-active');
+                    
+                } else if (btn.textContent === 'CapsLock' ) {
+
+                    textArea.textContent += '';
+                    
                     btn.classList.add('btn-active');
                     
                 } else if (btn.textContent === 'Shift') {
@@ -109,13 +115,11 @@ function createKeyboard(keysArrayEN) {
 
                 } else {
                     textArea.textContent += `${keysArrayEN[i][j]}`;
-                    // btn.style.backgroundColor = 'red';   //for animation
                     btn.classList.add('btn-active');
                 }
 
                 btn.addEventListener('mouseup', (event) => {
                     btn.classList.remove('btn-active');
-                    // btn.style.backgroundColor = 'lightblue';  //for animation
                 }); 
             });
         }
@@ -129,14 +133,50 @@ document.addEventListener('keydown', (event) => {
         if (codesArray[i].indexOf(event.code) !== -1) {
             let x = codesArray[i].indexOf(event.code); //place
             let ind = i; //row
-            let newBtn = document.querySelector(`.btn_${keysArrayEN[ind][x]}`);
 
-            newBtn.classList.add('btn-active');
-            
-            document.addEventListener('keyup', (event) => {
-                 newBtn = document.querySelector(`.btn_${keysArrayEN[ind][x]}`);
-                 newBtn.classList.remove('btn-active');
-            });
+            let keyEN = document.querySelector('.keyboard_EN');
+            let keyRU = document.querySelector('.keyboard_RU');
+            let keyboardDown = document.querySelector('.keyboardDown');
+            let keyboardUp = document.querySelector('.keyboardUp');
+
+            let newBtnEnDown = document.querySelector(`.btn_${keysArrayEN[ind][x]}`);
+            let newBtnEnUp = document.querySelector(`.btn_${keysArrayENUP[ind][x]}`);
+            let newBtnRuDown = document.querySelector(`.btn_${keysArrayRU[ind][x]}`);
+            let newBtnRuUp = document.querySelector(`.btn_${keysArrayRUUP[ind][x]}`);
+
+            if (keyEN && keyboardDown) {
+
+                newBtnEnDown.classList.add('btn-active');
+                
+                document.addEventListener('keyup', (event) => {
+                    newBtnEnDown = document.querySelector(`.btn_${keysArrayEN[ind][x]}`);
+                    newBtnEnDown.classList.remove('btn-active');
+                });
+            } else if (keyEN && keyboardUp) {
+
+                newBtnEnUp.classList.add('btn-active');
+                
+                document.addEventListener('keyup', (event) => {
+                    newBtnEnUp = document.querySelector(`.btn_${keysArrayENUP[ind][x]}`);
+                    newBtnEnUp.classList.remove('btn-active');
+                });
+            }  else if (keyRU && keyboardDown) {
+
+                newBtnRuDown.classList.add('btn-active');
+                
+                document.addEventListener('keyup', (event) => {
+                    newBtnRuDown = document.querySelector(`.btn_${keysArrayRU[ind][x]}`);
+                    newBtnRuDown.classList.remove('btn-active');
+                });
+            } else if (keyRU && keyboardUp) {
+
+                newBtnRuUp.classList.add('btn-active');
+                
+                document.addEventListener('keyup', (event) => {
+                    newBtnRuUp = document.querySelector(`.btn_${keysArrayRUUP[ind][x]}`);
+                    newBtnRuUp.classList.remove('btn-active');
+                });
+            }
             
         }   
 
@@ -207,7 +247,6 @@ changeKeyboard(
         let keyRU = document.querySelector('.keyboard_RU');
         let keyboardDown = document.querySelector('.keyboardDown');
         let keyboardUp = document.querySelector('.keyboardUp');
-
         
         if (keyEN && keyboardDown) {
             
@@ -219,6 +258,7 @@ changeKeyboard(
             createKeyboard(keysArrayENUP);
 
         } else if (keyEN && keyboardUp) {
+            
             while (elemToUp.firstChild) {
                 elemToUp.removeChild(elemToUp.firstChild);
             }
@@ -250,17 +290,3 @@ changeKeyboard(
     },
     "CapsLock"
   );
-
-
-
-
-
-
-
-
-
-// document.addEventListener('keydown', function(event) {
-//     if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
-//       alert('Отменить!')
-//     }
-//   });
