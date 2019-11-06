@@ -199,6 +199,57 @@ function changeKeyboard(func, ...codes) {
     "AltLeft"
   );
 
+//capslock
+changeKeyboard(
+    () => {
+        let elemToUp = document.querySelector('.keyboard');
+        let keyEN = document.querySelector('.keyboard_EN');
+        let keyRU = document.querySelector('.keyboard_RU');
+        let keyboardDown = document.querySelector('.keyboardDown');
+        let keyboardUp = document.querySelector('.keyboardUp');
+
+        
+        if (keyEN && keyboardDown) {
+            
+            while (elemToUp.firstChild) {
+                elemToUp.removeChild(elemToUp.firstChild);
+            }
+            keyEN.classList.toggle('keyboardDown');
+            keyEN.classList.toggle('keyboardUp');
+            createKeyboard(keysArrayENUP);
+
+        } else if (keyEN && keyboardUp) {
+            while (elemToUp.firstChild) {
+                elemToUp.removeChild(elemToUp.firstChild);
+            }
+
+            keyEN.classList.toggle('keyboardDown');
+            keyEN.classList.toggle('keyboardUp');
+            createKeyboard(keysArrayEN);
+            
+        } else if (keyRU && keyboardDown) {
+
+            while (elemToUp.firstChild) {
+                elemToUp.removeChild(elemToUp.firstChild);
+            }
+            keyRU.classList.toggle('keyboardDown');
+            keyRU.classList.toggle('keyboardUp');
+            createKeyboard(keysArrayRUUP);
+
+        } else if (keyRU && keyboardUp) {
+
+            while (elemToUp.firstChild) {
+                elemToUp.removeChild(elemToUp.firstChild);
+            }
+
+            keyRU.classList.toggle('keyboardDown');
+            keyRU.classList.toggle('keyboardUp');
+            createKeyboard(keysArrayRU);
+            
+        }
+    },
+    "CapsLock"
+  );
 
 
 
